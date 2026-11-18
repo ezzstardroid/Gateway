@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rosylicious Gateway</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background:
+    radial-gradient(ellipse at top, #ffffff, #e9e1f7 55%, #d8cbe9);
+  color: #76658d;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  padding: 35px 18px;
+  overflow-x: hidden;
+}
+
+body:before {
+  content: "✧   ♡   ✦   ♡   ✧";
+  position: fixed;
+  top: 15px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #c6a96b;
+  letter-spacing: 20px;
+  opacity: .6;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 430px;
+  margin: auto;
+  text-align: center;
+}
+
+.logo {
+  font-size: 13px;
+  letter-spacing: 7px;
+  color: #b69b65;
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 30px;
+  font-weight: 500;
+  color: #a68b61;
+  letter-spacing: 3px;
+}
+
+.subtitle {
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin: 12px 0 35px;
+  color: #9a88ad;
+}
+
+/* OLYMPIAN FRAME */
+
+.temple {
+  position: relative;
+  padding: 35px 22px;
+  margin: 15px auto 35px;
+  background: linear-gradient(145deg,#fff,#f5efff,#fff);
+  border: 2px solid #d7bd85;
+  outline: 1px solid #d7bd85;
+  outline-offset: 6px;
+  box-shadow: 0 12px 35px #b7a4c844;
+}
+
+.temple:before,
+.temple:after {
+  content: "✧";
+  position: absolute;
+  color: #c6a76d;
+  font-size: 24px;
+  background: #f9f5ff;
+  padding: 0 8px;
+}
+
+.temple:before {
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.temple:after {
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.columns {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 12px;
+  background: linear-gradient(90deg,#c9ad79,#fff5d9,#c9ad79);
+  opacity: .8;
+}
+
+.left { left: 0; }
+.right { right: 0; }
+
+.temple p {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin-bottom: 22px;
+  color: #ae9567;
+}
+
+.join {
+  display: block;
+  padding: 14px;
+  margin: 12px 5px;
+  text-decoration: none;
+  background: linear-gradient(110deg,#d9c9ed,#fff,#e8d7f4);
+  border: 1px solid #c9b17e;
+  color: #9279a9;
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  transition: .3s;
+}
+
+.join:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 5px 20px #c8b4dc;
+}
+
+.divider {
+  margin: 40px 0 25px;
+  color: #b69a69;
+  letter-spacing: 8px;
+  font-size: 14px;
+}
+
+h2 {
+  font-family: 'Cinzel', serif;
+  color: #a68b61;
+  font-size: 21px;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+
+.price-sub {
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-bottom: 22px;
+}
+
+.prices {
+  border: 1px solid #d4bd91;
+  background: #ffffff80;
+  padding: 14px;
+  box-shadow: 0 8px 25px #c6b3dc44;
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
+  padding: 13px 10px;
+  border-bottom: 1px solid #e7dce9;
+  font-size: 13px;
+}
+
+.price:last-child {
+  border: none;
+}
+
+.price span:last-child {
+  color: #ad9361;
+  font-weight: 500;
+}
+
+.dm {
+  display: block;
+  margin-top: 25px;
+  padding: 15px;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(110deg,#b9a1d1,#d9c3e8,#bca4d4);
+  font-family: 'Cinzel',serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  box-shadow: 0 5px 18px #b6a0cb66;
+}
+
+.footer {
+  margin-top: 35px;
+  font-family: 'Cinzel',serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #b39c76;
+}
+
+.small {
+  margin-top: 10px;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #a696b5;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="logo">✧ ROSYLICIOUS ✧</div>
+
+  <h1>ROSYLICIOUS</h1>
+  <div class="subtitle">HEAVENLY GATEWAY</div>
+
+  <div class="temple">
+    <div class="columns left"></div>
+    <div class="columns right"></div>
+
+    <p>𓆩 WELCOME TO OUR HEAVEN 𓆪</p>
+
+    <a class="join"
+       href="https://t.me/rosyliciousstore"
+       target="_blank">
+       ✧ JOIN TELEGRAM ✧
+    </a>
+
+    <a class="join"
+       href="https://t.me/wrraedeiia"
+       target="_blank">
+       ♡ CONTACT ADMIN ♡
+    </a>
+  </div>
+
+  <div class="divider">✧ ───── ♡ ───── ✧</div>
+
+  <h2>PRICE LIST</h2>
+  <div class="price-sub">ROBLOX ROBUX PACKAGE</div>
+
+  <div class="prices" id="prices"></div>
+
+  <a class="dm"
+     href="https://t.me/wrraedeiia"
+     target="_blank">
+     ORDER THROUGH TELEGRAM ♡
+  </a>
+
+  <div class="footer">
+    ✧ MADE WITH LOVE ✧
+  </div>
+
+  <div class="small">
+    ROSYLICIOUS STORE · 2026
+  </div>
+
+</div>
+
+<script>
+const priceList = document.getElementById("prices");
+
+for (let rm = 5; rm <= 50; rm += 5) {
+  const robux = rm * 20;
+
+  priceList.innerHTML += `
+    <div class="price">
+      <span>RM${rm}</span>
+      <span>${robux.toLocaleString()} ROBUX ♡</span>
+    </div>
+  `;
+}
+</script>
+
+</body>
+</html>
