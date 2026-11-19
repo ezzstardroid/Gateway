@@ -34,7 +34,7 @@ button, a, select {
   font: inherit;
 }
 
-/* LOADING SCREEN */
+/* LOADING */
 
 #loading {
   position: fixed;
@@ -86,41 +86,48 @@ button, a, select {
   letter-spacing: 3px;
 }
 
-/* TERMS */
+/* PAGE GENERAL */
 
-#terms {
+.page {
   display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 90;
-  background: linear-gradient(145deg,#fff,#fffdf5,#f6ebc8);
-  overflow-y: auto;
+  min-height: 100vh;
   padding: 35px 18px;
 }
 
-.terms-box {
+.page-container {
+  width: 100%;
   max-width: 440px;
-  margin: 25px auto;
+  margin: 20px auto;
   padding: 25px 20px;
   background: #ffffffc9;
   border: 1px solid #dfca94;
   box-shadow: 0 12px 35px #b9a77a22;
 }
 
-.terms-title {
+.top-symbol {
+  text-align: center;
+  font-size: 22px;
+  color: var(--gold);
+  letter-spacing: 10px;
+}
+
+.page-title {
   font-family: 'Cinzel',serif;
   font-size: 21px;
   text-align: center;
   color: #a88e59;
   letter-spacing: 2px;
+  margin-top: 15px;
 }
 
-.terms-sub {
+.page-sub {
   text-align: center;
   font-size: 10px;
   letter-spacing: 3px;
   margin: 12px 0 25px;
 }
+
+/* TERMS PAGE */
 
 .rule {
   padding: 15px 0;
@@ -182,20 +189,87 @@ select {
   cursor: not-allowed;
 }
 
+/* ADVERTISEMENT PAGE */
+
+.ad-box {
+  max-width: 440px;
+  margin: 20px auto;
+  padding: 27px 22px;
+  background: linear-gradient(145deg,#fff,#fffdf6,#f8edcf);
+  border: 1px solid #dfca94;
+  outline: 1px solid #dfca94;
+  outline-offset: 5px;
+  box-shadow: 0 12px 35px #b9a77a22;
+}
+
+.ad-label {
+  text-align: center;
+  font-size: 9px;
+  letter-spacing: 4px;
+  margin: 12px 0 20px;
+  color: #ad9564;
+}
+
+.ad-title {
+  text-align: center;
+  font-family: 'Cinzel',serif;
+  font-size: 19px;
+  letter-spacing: 2px;
+  color: #a88e59;
+}
+
+.ad-subtitle {
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin: 8px 0 20px;
+}
+
+.ad-price {
+  text-align: center;
+  font-family: 'Cinzel',serif;
+  font-size: 24px;
+  color: #a88e59;
+  margin-bottom: 18px;
+}
+
+.inventory-link {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  color: #a88e59;
+  overflow-wrap: anywhere;
+  margin-bottom: 18px;
+}
+
+.ad-list {
+  background: #ffffffa8;
+  border: 1px solid #eee2c5;
+  padding: 17px;
+  font-size: 12px;
+  line-height: 2.15;
+}
+
+.ad-list div {
+  border-bottom: 1px solid #eee7d6;
+  padding: 3px 0;
+}
+
+.ad-list div:last-child {
+  border-bottom: none;
+}
+
+.ad-list strong {
+  color: #a88e59;
+}
+
 /* HOMEPAGE */
 
 #home {
-  display: none;
   max-width: 440px;
   margin: auto;
   padding: 35px 18px;
   text-align: center;
-}
-
-.top-symbol {
-  font-size: 22px;
-  color: var(--gold);
-  letter-spacing: 10px;
 }
 
 .brand {
@@ -306,6 +380,13 @@ h2 {
   color: #ad9056;
 }
 
+.price-note {
+  font-size: 10px;
+  line-height: 1.8;
+  margin-top: 14px;
+  color: #a88e59;
+}
+
 .footer {
   margin-top: 35px;
   font-family: 'Cinzel',serif;
@@ -324,7 +405,7 @@ h2 {
 
 <body>
 
-<!-- LOADING -->
+<!-- LOADING SCREEN -->
 
 <div id="loading">
   <div class="top-symbol">✧ ♡ ✧</div>
@@ -338,23 +419,18 @@ h2 {
   <div class="loading-text">PREPARING YOUR EXPERIENCE...</div>
 </div>
 
-<!-- TERMS -->
 
-<section id="terms">
+<!-- PAGE 1: TERMS -->
 
-  <div class="terms-box">
+<section id="terms" class="page">
 
-    <div class="top-symbol" style="text-align:center">
-      ✧ ♡ ✧
-    </div>
+  <div class="page-container">
 
-    <div class="terms-title">
-      TERMS & CONDITIONS
-    </div>
+    <div class="top-symbol">✧ ♡ ✧</div>
 
-    <div class="terms-sub">
-      BEFORE PURCHASING
-    </div>
+    <div class="page-title">TERMS & CONDITIONS</div>
+
+    <div class="page-sub">BEFORE PURCHASING</div>
 
     <div class="rule">
       <strong>01. Account Security</strong><br>
@@ -364,15 +440,15 @@ h2 {
 
     <div class="rule">
       <strong>02. Age Eligibility</strong><br>
-      Ciri dan kandungan 18+ hanya untuk pengguna
-      yang memenuhi syarat umur dan pengesahan Roblox.
-      Jangan gunakan maklumat umur yang palsu.
+      Ciri dan kandungan 18+ tertakluk kepada syarat
+      umur dan pengesahan Roblox. Jangan gunakan
+      maklumat umur yang palsu.
     </div>
 
     <div class="rule">
       <strong>03. Parent Email</strong><br>
       Adakah anda mempunyai parent email?
-      
+
       <select id="parentEmail">
         <option value="">-- Select an option --</option>
         <option value="yes">Ada</option>
@@ -384,8 +460,8 @@ h2 {
 
     <div class="rule">
       <strong>04. Large Orders</strong><br>
-      Untuk pertanyaan pembelian melebihi RM500,
-      sila hubungi seller terlebih dahulu.
+      Untuk pertanyaan pembelian melebihi
+      500 Robux, sila hubungi seller terlebih dahulu.
     </div>
 
     <div class="rule">
@@ -399,15 +475,75 @@ h2 {
       <span>Saya telah membaca dan memahami terma serta syarat di atas.</span>
     </label>
 
-    <button class="enter" id="enterBtn" disabled>
-      CONTINUE TO HOMEPAGE ✧
+    <button class="enter" id="termsBtn" disabled>
+      CONTINUE ✧
     </button>
 
   </div>
 
 </section>
 
-<!-- HOMEPAGE -->
+
+<!-- PAGE 2: ADVERTISEMENT -->
+
+<section id="advertisement" class="page">
+
+  <div class="ad-box">
+
+    <div class="top-symbol">✧ ♡ ✧</div>
+
+    <div class="ad-label">
+      ROSYLICIOUS · SPECIAL ADVERTISEMENT
+    </div>
+
+    <div class="ad-title">
+      ROBLOX ACCOUNT
+    </div>
+
+    <div class="ad-subtitle">
+      MULTIGENDER
+    </div>
+
+    <div class="ad-price">RM80</div>
+
+    <a class="inventory-link"
+       href="https://www.roblox.com/users/4110416264/inventory#!/"
+       target="_blank">
+       ✧ VIEW INVENTORY
+    </a>
+
+    <div class="ad-list">
+      <div>• <strong>200+</strong> outfits</div>
+      <div>• <strong>10</strong> animations</div>
+      <div>• <strong>22</strong> emotes</div>
+      <div>• <strong>24</strong> accessories</div>
+      <div>• <strong>2</strong> limited's</div>
+      <div>• Elite / Radio / Dual Wield gamepass in MM2</div>
+      <div>• Age group <strong>18+</strong></div>
+      <div>• <strong>2</strong> gear accessories</div>
+      <div>• <strong>1</strong> godly in MM2</div>
+    </div>
+
+    <a class="main-btn"
+       href="https://t.me/wrraedeiia"
+       target="_blank">
+       ♡ DM SELLER
+    </a>
+
+    <button class="enter" onclick="openHome()">
+      CONTINUE TO HOMEPAGE ✧
+    </button>
+
+    <div class="footer-small" style="text-align:center">
+      ROSYLICIOUS · 2026
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PAGE 3: HOMEPAGE -->
 
 <main id="home">
 
@@ -451,6 +587,10 @@ h2 {
 
   <div class="prices" id="prices"></div>
 
+  <div class="price-note">
+    Orders above 500 Robux, please DM seller first.
+  </div>
+
   <div class="footer">
     ✧ MADE WITH LOVE ✧
   </div>
@@ -461,26 +601,38 @@ h2 {
 
 </main>
 
+
 <script>
+
+// PAGE ELEMENTS
+
+const loading = document.getElementById("loading");
+const terms = document.getElementById("terms");
+const advertisement = document.getElementById("advertisement");
+const home = document.getElementById("home");
+
 
 // LOADING: 10 SECONDS
 
 window.addEventListener("load", () => {
+
   setTimeout(() => {
-    const loading = document.getElementById("loading");
 
     loading.style.opacity = "0";
 
     setTimeout(() => {
+
       loading.style.display = "none";
-      document.getElementById("terms").style.display = "block";
+      terms.style.display = "block";
+
     }, 1000);
 
   }, 10000);
+
 });
 
 
-// PARENT EMAIL SELECT
+// PARENT EMAIL
 
 const parentEmail = document.getElementById("parentEmail");
 const parentNotice = document.getElementById("parentNotice");
@@ -490,46 +642,63 @@ parentEmail.addEventListener("change", () => {
   parentNotice.style.display = "block";
 
   if (parentEmail.value === "yes") {
+
     parentNotice.textContent =
       "♡ Okay! Pastikan penggunaan parent email mendapat kebenaran penjaga.";
-  }
 
-  else if (parentEmail.value === "no") {
+  } else if (parentEmail.value === "no") {
+
     parentNotice.textContent =
       "Please contact our seller first. We have limited parent email availability. Do not use another person's email without permission.";
-  }
 
-  else {
+  } else {
+
     parentNotice.style.display = "none";
+
   }
 
   checkContinue();
+
 });
 
 
-// AGREE
+// TERMS AGREEMENT
 
 const agree = document.getElementById("agree");
-const enterBtn = document.getElementById("enterBtn");
+const termsBtn = document.getElementById("termsBtn");
 
 function checkContinue() {
-  enterBtn.disabled =
+
+  termsBtn.disabled =
     !agree.checked || parentEmail.value === "";
+
 }
 
 agree.addEventListener("change", checkContinue);
 
 
-// ENTER HOMEPAGE
+// PAGE 1 TO PAGE 2
 
-enterBtn.addEventListener("click", () => {
+termsBtn.addEventListener("click", () => {
 
-  document.getElementById("terms").style.display = "none";
-  document.getElementById("home").style.display = "block";
+  terms.style.display = "none";
+  advertisement.style.display = "block";
 
-  window.scrollTo(0,0);
+  window.scrollTo(0, 0);
 
 });
+
+
+// PAGE 2 TO PAGE 3
+
+function openHome() {
+
+  advertisement.style.display = "none";
+  home.style.display = "block";
+
+  window.scrollTo(0, 0);
+
+}
 
 
 // PRICE LIST
