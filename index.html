@@ -7,7 +7,7 @@
 <title>Gateway | Rosylicious</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap');
 
 * {
   margin: 0;
@@ -15,162 +15,287 @@
   box-sizing: border-box;
 }
 
+:root {
+  --gold: #c3a66c;
+  --pale: #f8edc9;
+  --text: #8b7955;
+  --white: #fffefa;
+}
+
 body {
-  background: radial-gradient(ellipse at top, #fff, #e9e1f7 55%, #d8cbe9);
-  color: #76658d;
-  font-family: 'Poppins', sans-serif;
   min-height: 100vh;
-  padding: 35px 18px;
+  background: linear-gradient(145deg,#fff,#fffdf5,#f8edc9);
+  color: var(--text);
+  font-family: 'Poppins',sans-serif;
   overflow-x: hidden;
 }
 
-body:before {
-  content: "✧   ♡   ✦   ♡   ✧";
+button, a, select {
+  font: inherit;
+}
+
+/* LOADING SCREEN */
+
+#loading {
   position: fixed;
-  top: 15px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  color: #c6a96b;
-  letter-spacing: 20px;
-  opacity: .6;
-  pointer-events: none;
+  inset: 0;
+  z-index: 100;
+  background: linear-gradient(145deg,#fff,#fff9e8,#f5e8bd);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1s;
 }
 
-.container {
-  max-width: 430px;
-  margin: auto;
-  text-align: center;
+.load-logo {
+  font-family: 'Cinzel',serif;
+  font-size: 27px;
+  letter-spacing: 5px;
+  color: var(--gold);
 }
 
-.logo {
-  font-size: 13px;
-  letter-spacing: 7px;
-  color: #b69b65;
-  margin-bottom: 12px;
+.load-sub {
+  margin-top: 12px;
+  font-size: 10px;
+  letter-spacing: 4px;
 }
 
-h1 {
-  font-family: 'Cinzel', serif;
-  font-size: 30px;
-  font-weight: 500;
-  color: #a68b61;
+.loader {
+  width: 180px;
+  height: 3px;
+  background: #e9dfc6;
+  margin-top: 35px;
+  overflow: hidden;
+}
+
+.loader-bar {
+  width: 0%;
+  height: 100%;
+  background: #bba16b;
+  animation: load 10s linear forwards;
+}
+
+@keyframes load {
+  to { width: 100%; }
+}
+
+.loading-text {
+  margin-top: 15px;
+  font-size: 10px;
   letter-spacing: 3px;
+}
+
+/* TERMS */
+
+#terms {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: linear-gradient(145deg,#fff,#fffdf5,#f6ebc8);
+  overflow-y: auto;
+  padding: 35px 18px;
+}
+
+.terms-box {
+  max-width: 440px;
+  margin: 25px auto;
+  padding: 25px 20px;
+  background: #ffffffc9;
+  border: 1px solid #dfca94;
+  box-shadow: 0 12px 35px #b9a77a22;
+}
+
+.terms-title {
+  font-family: 'Cinzel',serif;
+  font-size: 21px;
+  text-align: center;
+  color: #a88e59;
+  letter-spacing: 2px;
+}
+
+.terms-sub {
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin: 12px 0 25px;
+}
+
+.rule {
+  padding: 15px 0;
+  border-bottom: 1px solid #eee5d1;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.rule strong {
+  color: #a68b58;
+}
+
+select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: #fffdf7;
+  border: 1px solid #dfc990;
+  color: #8b7955;
+  outline: none;
+}
+
+.notice {
+  display: none;
+  padding: 12px;
+  margin-top: 12px;
+  background: #fff7df;
+  border: 1px solid #e4d2a4;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.agree {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 11px;
+  margin: 20px 0;
+}
+
+.agree input {
+  margin-top: 4px;
+  accent-color: #b49a65;
+}
+
+.enter {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #cbb47d;
+  background: linear-gradient(100deg,#f0e3bd,#fffdf4,#f0e3bd);
+  color: #92794d;
+  letter-spacing: 2px;
+  cursor: pointer;
+  font-family: 'Cinzel',serif;
+}
+
+.enter:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+/* HOMEPAGE */
+
+#home {
+  display: none;
+  max-width: 440px;
+  margin: auto;
+  padding: 35px 18px;
+  text-align: center;
+}
+
+.top-symbol {
+  font-size: 22px;
+  color: var(--gold);
+  letter-spacing: 10px;
+}
+
+.brand {
+  font-family: 'Cinzel',serif;
+  font-size: 29px;
+  letter-spacing: 4px;
+  margin-top: 15px;
+  color: #a88e59;
 }
 
 .subtitle {
-  font-size: 11px;
-  letter-spacing: 3px;
-  margin: 12px 0 35px;
-  color: #9a88ad;
+  font-size: 10px;
+  letter-spacing: 4px;
+  margin-top: 10px;
+  margin-bottom: 35px;
 }
 
-.temple {
+.hero {
   position: relative;
-  padding: 35px 22px;
-  margin: 15px auto 35px;
-  background: linear-gradient(145deg,#fff,#f5efff,#fff);
-  border: 2px solid #d7bd85;
-  outline: 1px solid #d7bd85;
-  outline-offset: 6px;
-  box-shadow: 0 12px 35px #b7a4c844;
+  padding: 35px 20px;
+  background: linear-gradient(145deg,#fff,#fff9e9,#f5e9c8);
+  border: 1px solid #d7c28f;
+  outline: 1px solid #d7c28f;
+  outline-offset: 5px;
+  box-shadow: 0 12px 30px #b6a16d22;
 }
 
-.temple:before,
-.temple:after {
+.hero:before {
   content: "✧";
   position: absolute;
-  color: #c6a76d;
-  font-size: 24px;
-  background: #f9f5ff;
-  padding: 0 8px;
-}
-
-.temple:before {
-  top: -15px;
+  top: -17px;
   left: 50%;
   transform: translateX(-50%);
+  background: #fffaf0;
+  padding: 0 10px;
+  color: var(--gold);
+  font-size: 25px;
 }
 
-.temple:after {
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.columns {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 12px;
-  background: linear-gradient(90deg,#c9ad79,#fff5d9,#c9ad79);
-  opacity: .8;
-}
-
-.left { left: 0; }
-.right { right: 0; }
-
-.temple p {
-  font-family: 'Cinzel', serif;
-  font-size: 12px;
+.hero-title {
+  font-family: 'Cinzel',serif;
+  font-size: 13px;
   letter-spacing: 3px;
-  margin-bottom: 22px;
-  color: #ae9567;
+  margin-bottom: 20px;
 }
 
-.join {
+.main-btn {
   display: block;
-  padding: 14px;
-  margin: 12px 5px;
+  width: 100%;
+  padding: 15px;
+  margin-top: 13px;
   text-decoration: none;
-  background: linear-gradient(110deg,#d9c9ed,#fff,#e8d7f4);
-  border: 1px solid #c9b17e;
-  color: #9279a9;
-  font-family: 'Cinzel', serif;
+  color: #8b7549;
+  border: 1px solid #d3bd8c;
+  background: linear-gradient(100deg,#f3e7c6,#fffdf6,#f3e7c6);
+  font-family: 'Cinzel',serif;
   font-size: 12px;
   letter-spacing: 2px;
   transition: .3s;
 }
 
-.join:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 5px 20px #c8b4dc;
+.main-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px #b9a77933;
 }
 
+/* PRICE */
+
 .divider {
-  margin: 40px 0 25px;
-  color: #b69a69;
-  letter-spacing: 8px;
-  font-size: 14px;
+  margin: 45px 0 25px;
+  color: var(--gold);
+  letter-spacing: 7px;
 }
 
 h2 {
-  font-family: 'Cinzel', serif;
-  color: #a68b61;
+  font-family: 'Cinzel',serif;
   font-size: 21px;
   letter-spacing: 3px;
-  margin-bottom: 8px;
+  color: #a88e59;
 }
 
 .price-sub {
-  font-size: 10px;
+  font-size: 9px;
   letter-spacing: 3px;
-  margin-bottom: 22px;
+  margin: 10px 0 22px;
 }
 
 .prices {
-  border: 1px solid #d4bd91;
-  background: #ffffff80;
-  padding: 14px;
-  box-shadow: 0 8px 25px #c6b3dc44;
+  background: #ffffffa8;
+  border: 1px solid #dfca94;
+  padding: 12px;
+  text-align: left;
 }
 
 .price {
   display: flex;
   justify-content: space-between;
-  padding: 13px 10px;
-  border-bottom: 1px solid #e7dce9;
-  font-size: 13px;
+  padding: 13px 8px;
+  border-bottom: 1px solid #eee7d6;
+  font-size: 12px;
 }
 
 .price:last-child {
@@ -178,26 +303,7 @@ h2 {
 }
 
 .price span:last-child {
-  color: #ad9361;
-  font-weight: 500;
-}
-
-.dm {
-  display: block;
-  margin-top: 25px;
-  padding: 15px;
-  text-decoration: none;
-  color: white;
-  background: linear-gradient(110deg,#b9a1d1,#d9c3e8,#bca4d4);
-  font-family: 'Cinzel',serif;
-  font-size: 12px;
-  letter-spacing: 2px;
-  box-shadow: 0 5px 18px #b6a0cb66;
-  transition: .3s;
-}
-
-.dm:hover {
-  transform: translateY(-3px);
+  color: #ad9056;
 }
 
 .footer {
@@ -205,82 +311,242 @@ h2 {
   font-family: 'Cinzel',serif;
   font-size: 10px;
   letter-spacing: 3px;
-  color: #b39c76;
+  color: #ad9564;
 }
 
-.small {
-  margin-top: 10px;
+.footer-small {
   font-size: 9px;
+  margin-top: 10px;
   letter-spacing: 2px;
-  color: #a696b5;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- LOADING -->
 
-  <div class="logo">✧ ROSYLICIOUS ✧</div>
+<div id="loading">
+  <div class="top-symbol">✧ ♡ ✧</div>
+  <div class="load-logo">ROSYLICIOUS</div>
+  <div class="load-sub">HEAVENLY GATEWAY</div>
 
-  <h1>ROSYLICIOUS</h1>
-  <div class="subtitle">HEAVENLY GATEWAY</div>
-
-  <div class="temple">
-    <div class="columns left"></div>
-    <div class="columns right"></div>
-
-    <p>𓆩 WELCOME TO OUR HEAVEN 𓆪</p>
-
-    <a class="join"
-       href="https://t.me/rosyliciousstore"
-       target="_blank">
-       ✧ JOIN TELEGRAM ✧
-    </a>
-
-    <a class="join"
-       href="https://t.me/wrraedeiia?text=Hello%20Rosylicious%21%20%E2%99%A1%0A%0AUsername%3A%0ARobux%3A%0ADisplay%3A%0APay%20via%3A"
-       target="_blank">
-       ♡ CONTACT ADMIN ♡
-    </a>
+  <div class="loader">
+    <div class="loader-bar"></div>
   </div>
 
-  <div class="divider">✧ ───── ♡ ───── ✧</div>
+  <div class="loading-text">PREPARING YOUR EXPERIENCE...</div>
+</div>
+
+<!-- TERMS -->
+
+<section id="terms">
+
+  <div class="terms-box">
+
+    <div class="top-symbol" style="text-align:center">
+      ✧ ♡ ✧
+    </div>
+
+    <div class="terms-title">
+      TERMS & CONDITIONS
+    </div>
+
+    <div class="terms-sub">
+      BEFORE PURCHASING
+    </div>
+
+    <div class="rule">
+      <strong>01. Account Security</strong><br>
+      Pastikan 2-Step Verification telah diaktifkan
+      pada akaun Roblox anda sebelum membuat pembelian.
+    </div>
+
+    <div class="rule">
+      <strong>02. Age Eligibility</strong><br>
+      Ciri dan kandungan 18+ hanya untuk pengguna
+      yang memenuhi syarat umur dan pengesahan Roblox.
+      Jangan gunakan maklumat umur yang palsu.
+    </div>
+
+    <div class="rule">
+      <strong>03. Parent Email</strong><br>
+      Adakah anda mempunyai parent email?
+      
+      <select id="parentEmail">
+        <option value="">-- Select an option --</option>
+        <option value="yes">Ada</option>
+        <option value="no">Tiada</option>
+      </select>
+
+      <div class="notice" id="parentNotice"></div>
+    </div>
+
+    <div class="rule">
+      <strong>04. Large Orders</strong><br>
+      Untuk pertanyaan pembelian melebihi RM500,
+      sila hubungi seller terlebih dahulu.
+    </div>
+
+    <div class="rule">
+      <strong>05. Store Notice</strong><br>
+      Limited shop. Sila semak maklumat produk
+      dan syarat pembelian sebelum meneruskan.
+    </div>
+
+    <label class="agree">
+      <input type="checkbox" id="agree">
+      <span>Saya telah membaca dan memahami terma serta syarat di atas.</span>
+    </label>
+
+    <button class="enter" id="enterBtn" disabled>
+      CONTINUE TO HOMEPAGE ✧
+    </button>
+
+  </div>
+
+</section>
+
+<!-- HOMEPAGE -->
+
+<main id="home">
+
+  <div class="top-symbol">✧ ♡ ✧</div>
+
+  <div class="brand">ROSYLICIOUS</div>
+
+  <div class="subtitle">
+    PEARL WHITE · HEAVENLY STORE
+  </div>
+
+  <div class="hero">
+
+    <div class="hero-title">
+      𓆩 WELCOME TO ROSYLICIOUS 𓆪
+    </div>
+
+    <a class="main-btn"
+       href="https://t.me/rosyliciousstore"
+       target="_blank">
+       ✧ JOIN TELEGRAM
+    </a>
+
+    <a class="main-btn"
+       href="https://t.me/wrraedeiia?text=Hello%20Rosylicious%21%20%E2%99%A1%0A%0AUsername%3A%0ARobux%3A%0ADisplay%3A%0APay%20via%3A"
+       target="_blank">
+       ♡ DM SELLER
+    </a>
+
+  </div>
+
+  <div class="divider">
+    ✧ ───── ♡ ───── ✧
+  </div>
 
   <h2>PRICE LIST</h2>
-  <div class="price-sub">ROBLOX ROBUX PACKAGE</div>
+
+  <div class="price-sub">
+    ROBUX PACKAGE
+  </div>
 
   <div class="prices" id="prices"></div>
-
-  <a class="dm"
-     href="https://t.me/wrraedeiia?text=Hello%20Rosylicious%21%20%E2%99%A1%0A%0AUsername%3A%0ARobux%3A%0ADisplay%3A%0APay%20via%3A"
-     target="_blank">
-     ORDER THROUGH TELEGRAM ♡
-  </a>
 
   <div class="footer">
     ✧ MADE WITH LOVE ✧
   </div>
 
-  <div class="small">
-    ROSYLICIOUS STORE · 2026
+  <div class="footer-small">
+    ROSYLICIOUS · 2026
   </div>
 
-</div>
+</main>
 
 <script>
-const priceList = document.getElementById("prices");
+
+// LOADING: 10 SECONDS
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    const loading = document.getElementById("loading");
+
+    loading.style.opacity = "0";
+
+    setTimeout(() => {
+      loading.style.display = "none";
+      document.getElementById("terms").style.display = "block";
+    }, 1000);
+
+  }, 10000);
+});
+
+
+// PARENT EMAIL SELECT
+
+const parentEmail = document.getElementById("parentEmail");
+const parentNotice = document.getElementById("parentNotice");
+
+parentEmail.addEventListener("change", () => {
+
+  parentNotice.style.display = "block";
+
+  if (parentEmail.value === "yes") {
+    parentNotice.textContent =
+      "♡ Okay! Pastikan penggunaan parent email mendapat kebenaran penjaga.";
+  }
+
+  else if (parentEmail.value === "no") {
+    parentNotice.textContent =
+      "Please contact our seller first. We have limited parent email availability. Do not use another person's email without permission.";
+  }
+
+  else {
+    parentNotice.style.display = "none";
+  }
+
+  checkContinue();
+});
+
+
+// AGREE
+
+const agree = document.getElementById("agree");
+const enterBtn = document.getElementById("enterBtn");
+
+function checkContinue() {
+  enterBtn.disabled =
+    !agree.checked || parentEmail.value === "";
+}
+
+agree.addEventListener("change", checkContinue);
+
+
+// ENTER HOMEPAGE
+
+enterBtn.addEventListener("click", () => {
+
+  document.getElementById("terms").style.display = "none";
+  document.getElementById("home").style.display = "block";
+
+  window.scrollTo(0,0);
+
+});
+
+
+// PRICE LIST
+
+const prices = document.getElementById("prices");
 
 for (let rm = 5; rm <= 50; rm += 5) {
-  const robux = rm * 20;
 
-  priceList.innerHTML += `
+  prices.innerHTML += `
     <div class="price">
       <span>RM${rm}</span>
-      <span>${robux.toLocaleString()} ROBUX ♡</span>
+      <span>${(rm * 20).toLocaleString()} ROBUX ♡</span>
     </div>
   `;
+
 }
+
 </script>
 
 </body>
